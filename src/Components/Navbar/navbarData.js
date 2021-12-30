@@ -3,6 +3,7 @@ import {ImBooks} from 'react-icons/im';
 import {GiMeditation} from 'react-icons/gi';
 import {FiActivity} from 'react-icons/fi';
 import {AiFillHome} from 'react-icons/ai';
+import {FaLaughSquint} from 'react-icons/fa';
 
 export const navbarData = [
     {
@@ -24,5 +25,10 @@ export const navbarData = [
         title:'Meditate',
         icon:<GiMeditation/>,
         link: "/meditate"
+    },
+    {
+        title:'Jokes',
+        icon:<FaLaughSquint/>,
+        link: "/jokes"
     }
 ]
