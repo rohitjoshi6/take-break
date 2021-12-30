@@ -1,7 +1,7 @@
 import React from 'react';
 import jokesList from './jokesList';
 
-import { Card , Row  } from 'antd';
+import { Card  } from 'antd';
 import './jokes.scss';
 import jokeImg from './joke_img.png';
 
@@ -10,8 +10,6 @@ const jokes = () => {
     const refreshPage = () =>{
         window.location.reload();
     }
-
-    
 
     const randomNumber = (min, max) => {
         return Math.floor(Math.random() * (max - min)) + min;
