@@ -4,6 +4,7 @@ import {GiMeditation} from 'react-icons/gi';
 import {FiActivity} from 'react-icons/fi';
 import {AiFillHome} from 'react-icons/ai';
 import {FaLaughSquint} from 'react-icons/fa';
+import {BiRadio} from 'react-icons/bi';
 
 export const navbarData = [
     {
@@ -30,5 +31,10 @@ export const navbarData = [
         title:'Jokes',
         icon:<FaLaughSquint/>,
         link: "/jokes"
+    },
+    {
+        title:'Lofi Music',
+        icon:<BiRadio/>,
+        link: "/lofi"
     }
 ]

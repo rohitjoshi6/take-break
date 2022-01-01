@@ -6,6 +6,7 @@ import {BrowserRouter , Route, Routes} from 'react-router-dom';
 import Home  from './Pages/Home/home.js';
 import Activities from './Pages/Activities/activities.js';
 import Jokes from './Pages/Jokes/jokes.js';
+import Lofi from './Pages/Lofi/lofi.js';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/activities" element={<Activities/>} />
           <Route path="/jokes" element={<Jokes/>} />
-
+          <Route path="/lofi" element={<Lofi/>} />
         </Routes>
       </BrowserRouter>  
     </div>
