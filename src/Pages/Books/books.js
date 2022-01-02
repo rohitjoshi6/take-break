@@ -1,48 +1,52 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React , {useState , useEffect} from 'react';
-// import { Input } from 'antd';
-import axios from 'axios';
+/* eslint-disable react/jsx-no-target-blank */
+import React from "react";
+import { useState } from "react";
+import axios from "axios";
+import './books.scss';
+import bookImg from './bookImg.png';
 
 const Books = () => {
+    const [book , setBook] = useState("")
+    const [result , setResult] = useState([])
+    const apiKey = "AIzaSyBVHkE-9Ox19z6q4sO8PPMPKbZedYjRqMs";
+    const handleChange = (event) =>{
+        const book = event.target.value;
+        setBook(book);
 
-    const [input , setInput] = useState("");
+    }
+    const handleSubmit = (event) =>{
+        event.preventDefault();
 
-    const [books , setBooks] = useState([]);
-
-    useEffect( () => {
-        async function getData (){
-            const res = await axios.get(`https://hapi-books.p.rapidapi.com/week/${input}`,{
-                headers : {
-                    'x-rapidapi-host': 'hapi-books.p.rapidapi.com',
-                    'x-rapidapi-key': 'cac7e3696cmsh3059b09f00d8b64p156133jsnab64b22f9377'
-                }
-            });
-            //console.log(res);
-            setBooks(res.data[0]);
-            console.log(books);
-        }
-
-        getData();
-
-    });
-    
-
-    //console.log(input);
-
+        axios.get("https://www.googleapis.com/books/v1/volumes?q="+book+"&key="+apiKey+"&maxResults=3")
+        .then(data => {
+            console.log(data.data.items);
+            setResult(data.data.items);
+        })
+        .catch(err => {
+            alert("No book found")
+            window.location.reload();
+        })
+    }
     return (
-        <div>
-          <input id="input" placeholder="" />
-            <button onClick = {() => setInput(document.getElementById('input').value)}>Search</button>
-            {/* <div id="results" className='bookCard'>
-                
-                     <div className='img' key={books[0].book_id}>
-                        <img src={books[0].cover}  />
-                        <p>{books[0].name}</p>
-                    </div>
-                
-        </div> */}
+    <div className="container">
+        <form onSubmit={handleSubmit}>
+            <div className="form-group">
+                <input onChange={handleChange} type="text" className="input-control" placeholder="Search for books" autoComplete="off"/>
+            <button type="submit" className="btn btn-danger">Search</button>
+            </div>
+        </form>
+        <div className="row">
+            <div className="col-1">
+         {result.map(book => (
+             <a target="_blank" href={ book.volumeInfo.previewLink}>
+             <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/>
+             </a>
+         ))}
+         </div>
+         <div className="col-2">
+            <img src={bookImg} alt="book"/>
         </div>
-    )
+    </div>
+    </div>);
 }
-
 export default Books
