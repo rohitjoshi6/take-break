@@ -7,6 +7,7 @@ import Home  from './Pages/Home/home.js';
 import Activities from './Pages/Activities/activities.js';
 import Jokes from './Pages/Jokes/jokes.js';
 import Lofi from './Pages/Lofi/lofi.js';
+import Books from './Pages/Books/books.js';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/activities" element={<Activities/>} />
           <Route path="/jokes" element={<Jokes/>} />
           <Route path="/lofi" element={<Lofi/>} />
+          <Route path="/books" element={<Books/>} />
         </Routes>
       </BrowserRouter>  
     </div>
