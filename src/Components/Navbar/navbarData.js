@@ -6,6 +6,7 @@ import {AiFillHome} from 'react-icons/ai';
 import {FaLaughSquint} from 'react-icons/fa';
 import {BiRadio} from 'react-icons/bi';
 
+
 export const navbarData = [
     {
         title:'Home',
