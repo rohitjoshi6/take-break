@@ -10,8 +10,6 @@ const acts = [
     {"value":"Plan a safari theme day." }, 
     {"value":"Perform a dance for your family" }, 
     
-    
-
 ]
 
 export default acts;

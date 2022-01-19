@@ -8,7 +8,7 @@ import bookImg from './bookImg.png';
 const Books = () => {
     const [book , setBook] = useState("")
     const [result , setResult] = useState([])
-    const apiKey = "AIzaSyBc0qj2j7qNvDOfbD19351kK4EburUTM9g";
+    const apiKey = "";   //place your api key here
     const handleChange = (event) =>{
         const book = event.target.value;
         setBook(book);
