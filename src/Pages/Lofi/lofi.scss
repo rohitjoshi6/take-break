@@ -23,17 +23,17 @@ input{
     padding: 2px;
 }
 
-button{
-    width : 90px;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid #000;
-    background-color: #000;
-    color: #fff;
-    font-size: 14px;
-    margin : 10px;
-    cursor: pointer;
+.button-med{
+    position : fixed;
+    top : 99%;
+    left : 41%;
+    width : 15em;
+    height : 4em;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
 }
+
 
 iframe{
     border:none
