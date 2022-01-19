@@ -3,7 +3,8 @@ import React from 'react'
 import './activities.scss'
 import activityImg from './4453.jpg'
 import {Card} from 'antd'
-import { useState, useEffect } from 'react'
+import acts from './act';
+
 
 const activities = () => {
 
@@ -11,9 +12,13 @@ const activities = () => {
         window.location.reload();
     }
 
-    const [activity, setActivity] = useState([]);
+    const randomNumber = (min, max) => {
+        return Math.floor(Math.random() * (max - min)) + min;
+    };
 
-    useEffect(() => {
+    //const [activity, setActivity] = useState([]);
+
+    /*useEffect(() => {
         async function fetchData() {
             const response = await fetch('http://www.boredapi.com/api/activity?type=recreational')
             const data = await response.json()
@@ -21,7 +26,7 @@ const activities = () => {
             setActivity(data)
         }
         fetchData()
-    }, [])
+    }, [])*/
 
     return (
         <div className="activities">
@@ -31,7 +36,7 @@ const activities = () => {
                   </div>
                   <hr></hr>
                   <div className='activity-content'>
-                    <p>{activity.activity}</p>
+                    <p>{acts[randomNumber(1,10)].value}</p>
                     <br></br>
                   </div>
                   <button className='button' onClick = {refreshPage} >Get Another Activity</button>

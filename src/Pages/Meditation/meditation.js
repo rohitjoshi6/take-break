@@ -1,23 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react'
-import { useState} from 'react'
-import { useEffect } from 'react';
-
+import ReactPlayer from 'react-player';
+import videos from './videos';
+import './meditation.scss';
 const meditation = () => {
 
-    const [video , setVideo] = useState()
+    
 
     //const [num , setNum] =useState(0)
 
-    const base_url="http://www.youtube.com/embed/"
+    //const base_url="http://www.youtube.com/embed/"
 
     const randomNumber = (min, max) => {
         return Math.floor(Math.random() * (max - min)) + min;
     };
 
-    useEffect (() => {
-    async function fetchData(key='AIzaSyAujO3tQ-Kb4iZGbYqcpaXcLAJRL-qC8NU', query="meditation") {
+    const refreshPage = () =>{
+        window.location.reload();
+    }
+
+    /*useEffect (() => {
+    async function fetchData(key='AIzaSyCjczfDfdVDCbiragHe0z_XxU9is33D0iY', query="meditation") {
         
         const response = await fetch('https://www.googleapis.com/youtube/v3/search?key=' + key  + '&type=video&part=snippet&maxResults=5&q=' + query)
 
@@ -28,17 +32,19 @@ const meditation = () => {
         setVideo(base_url + data.items[randomNumber(0,5)].id.videoId)
         }
         fetchData()
-    }, [randomNumber])
+    }, [randomNumber])*/
+
+
         
     return (
         <div className="lofi">
-            {/* <div className="form">
-            <input type="text" id="search" placeholder="Search for a video" />
-            <button id="search-button" onClick={()=>fetchData('AIzaSyDPUDL2TjZDZLfrubqV8TGtIFigsXlEwD8', document.getElementById('search').value)}>Search</button>
-            </div> */}
-            { <div id="results" className='iframeVideo'>
-                <iframe id='video' title='video' width="860" height="450" src={video}  ></iframe>
-            </div> }
+            
+            <div id="results" className='iframeVideo'>
+            <ReactPlayer
+               url={videos[randomNumber(0,16)].value}
+            />
+            </div> 
+            <button className='button-med' onClick = {refreshPage} >Get Another Meditation Video</button>
         </div>
     )
 }
